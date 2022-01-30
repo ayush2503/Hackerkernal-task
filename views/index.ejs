@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Task</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <div class="lft">
+    <h1>Add user To the <br> database</h1>
+    <form action="/createUser" method="post">
+      <input type="text" name="name" placeholder="Enter name of the user"> <br>
+      <input type="text" name="email" placeholder="Enter email of the user"><br>
+      <input type="text" name="mobile" placeholder="Enter number of the user"><br>
+      <input id="a" type="submit" value="Add User">
+    </form>
+  </div>
+  <hr>
+  <div class="rgt">
+    <h1 id="def">Add Tasks To the <br>   Users</h1>
+    <form action="/addtask" method="post">
+      <input id="ii" type="text" name="taskname" placeholder="Enter the task name">
+      <br><br>
+      <label id="task" for="tasktype">Choose task type:</label>
+      <select id="tasktype" name="tasktype">
+        <option value="pending">pending</option>
+        <option value="done">done</option>
+      </select><br><br>
+      <div class="checkk">
+        <% data.forEach((elem)=>{ %>
+        
+        <input type="checkbox" value="<%=elem.name %>" name="user" class="check" id='<%=elem._id %>'>
+        <label for='<%=elem._id %>'>
+          <%= elem.name%>
+        </label>
+        <% }) %>
+      </div>
+      
+          <br><br>
+        <input class="aa" type="submit" value="Add Task">
+    </form>
+    <a id="dd" href="/dowwn">Download Excel</a>
+  </div>
+</body>
+
+</html>
